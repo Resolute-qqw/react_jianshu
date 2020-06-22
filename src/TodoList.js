@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import store from './store'
-import {getInputChangeAction, getInputAddAction, getInputDeleteAction} from './store/actionCreators'
+import {getTodoDataAction, getInputChangeAction, getInputAddAction, getInputDeleteAction} from './store/actionCreators'
 import 'antd/dist/antd.css';
-import axios from 'axios'
 import TodoListUI from './TodoListUI'
 class TodoList extends Component {
   constructor(props) {
@@ -27,9 +26,8 @@ class TodoList extends Component {
     )
   }
   componentDidMount() {
-    axios.get('/api/todoList').then(res=>{
-      console.log(res);
-    })
+    const action = getTodoDataAction()
+    store.dispatch(action)
   }
   onChangeInput(e) {
     const action = getInputChangeAction(e.target.value)

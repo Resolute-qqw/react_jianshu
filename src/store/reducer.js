@@ -21,6 +21,11 @@ export default (state = defaultState, action) => {
     newState.data.splice(action.value, 1)
     return newState
   }
+  if(action.type === 'setTodoList') {
+    const newState = JSON.parse(JSON.stringify(state))
+    newState.data = action.value
+    return newState
+  }
   
   return state
 }

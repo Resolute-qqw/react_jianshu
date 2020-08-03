@@ -1,41 +1,18 @@
 import React, { Component, Fragment } from 'react'
-import { CSSTransition } from 'react-transition-group';
-import './style.css'
+import { GlobalStyled } from './style.js'
+import { FontSizeStyle } from './font/iconfont.js'
 
+import Header from './common/header'
 class App extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      show: true
-    }
-    this.handleToggle = this.handleToggle.bind(this)
-  }
 
   render() {
     return (
       <Fragment>
-        <CSSTransition
-          in={this.state.show}
-          timeout={1000}
-          classNames='fade'
-          onEntered={(el) => {
-            el.style.color = "pink"
-          }}
-        >
-          <div>hello word</div>
-        </CSSTransition>
-        <button onClick={this.handleToggle}>toggle</button>
+        <FontSizeStyle />
+        <GlobalStyled />
+        <Header />
       </Fragment>
     )
-  }
-
-  handleToggle() {
-    this.setState(() => {
-      return {
-        show: this.state.show ? false : true
-      }
-    })
   }
 }
 

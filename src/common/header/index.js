@@ -1,48 +1,35 @@
 import React, { Component } from "react";
-import {
-  HeaderWrapper,
-  Logo,
-  Container,
-  FunctionBlock,
-  Tab,
-  Serach,
-  Typeface,
-  BetaBox,
-  Beta,
-  Login,
-  Register,
-  Writing,
-} from "./style";
+import style from './index.module.scss'
 
 class Header extends Component {
   render() {
     return (
-      <HeaderWrapper>
-        <Logo href="/" />
-        <Container>
-          <Tab className="active">首页</Tab>
-          <Tab>下载App</Tab>
-          <Serach></Serach>
-        </Container>
-        <FunctionBlock>
-          <Typeface>
+      <div className={style.headerWrapper}>
+        <div className={style.logo} />
+        <div className={style.container}>
+          <div className={`${style.active} ${style.tab}`}>首页</div>
+          <div className={style.tab}>下载App</div>
+          <input className={style.search} />
+        </div>
+        <div className={style.functionBlock}>
+          <div className={style.typeface}>
             <i className="iconfont">&#xe636;</i>
-          </Typeface>
-          <BetaBox>
-            <Beta />
-          </BetaBox>
-          <Login>
+          </div>
+          <div className={style.betaBox}>
+            <img src={require('../../statics/images/beta.png')} alt="" className={style.beta} />
+          </div>
+          <div className={style.login}>
             登录
-          </Login>
-          <Register>
+          </div>
+          <div className={style.register}>
             注册
-          </Register>
-          <Writing>
+          </div>
+          <div className={style.writing}>
             <i className="iconfont feather">&#xe708;</i>
             写文章
-          </Writing>
-        </FunctionBlock>
-      </HeaderWrapper>
+          </div>
+        </div>
+      </div>
     );
   }
 }
